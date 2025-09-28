@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ungoogled Chromium Updater</title>
+    <style>
+        body { 
+            width: 300px; 
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+        .logo {
+            width: 32px;
+            height: 32px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 8px;
+            min-width: 25px;
+            text-align: center;
+        }
+        .status-new { background: #ff4444; color: white; }
+        .status-updated { background: #4CAF50; color: white; }
+        .info-line { 
+            margin: 8px 0;
+            padding: 8px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        button { 
+            width: 100%; 
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-primary { background: #4CAF50; color: white; }
+        .btn-settings { background: #9C27B0; color: white; }
+        #errorInfo {
+            display: none;
+            background: #ffebee;
+            color: #c62828;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 12px;
+        }
+        #status {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="icon.png" alt="Logo" class="logo">
+        <h3>Ungoogled Chromium Updater</h3>
+    </div>
+
+    <div class="info-line">
+        <strong>Текущая версия:</strong> 
+        <span id="currentVersion">—</span>
+    </div>
+
+    <div class="info-line">
+        <strong>Последняя версия:</strong> 
+        <span id="latestVersion">—</span>
+        <span id="versionStatus" class="status-badge"></span>
+    </div>
+
+    <div class="info-line">
+        <strong>Архитектура:</strong> <span id="architecture">—</span>
+    </div>
+
+    <div class="info-line">
+        <strong>Последняя проверка:</strong> 
+        <span id="lastChecked">—</span>
+    </div>
+
+    <div id="errorInfo"></div>
+
+    <button id="checkUpdate" class="btn-primary">Проверить обновления</button>
+    <button id="openSettings" class="btn-settings">Настройки</button>
+
+    <div id="status"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
